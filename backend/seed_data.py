@@ -3,7 +3,7 @@ import firebase_admin, os
 import json
 from firebase_admin import credentials, db
 
-cred = credentials.Certificate("C:/Users/shawk/Downloads/CZ3002-ASE/project/data/ase-2022-732e9-firebase-adminsdk-2wzrp-58363f63f6.json")
+cred = credentials.Certificate("path to cert")
 firebase_admin.initialize_app(cred,
 {'databaseURL': 'https://ase-2022-732e9-default-rtdb.asia-southeast1.firebasedatabase.app/'})
 
