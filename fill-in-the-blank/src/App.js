@@ -17,7 +17,6 @@ return (
 		<Route path='/indexswap' component={IndexSwap} />
 		<Route path='/groupfinder' component={GroupFinder} />
 		<Route path='/forum' component={forum} />
-		<Route path='/sign-up' component={SignUp} />
 	</Routes>
 	</Router>
 );
