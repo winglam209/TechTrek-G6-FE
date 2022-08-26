@@ -5,7 +5,7 @@ import { authContext } from "../context/authContext";
 import styles from "./Login.module.css";
 
 const Login = () => {
-  const { auth, setAuth } = useContext(authContext);
+  const { setAuth } = useContext(authContext);
   return (
     <div className={styles.loginCard}>
       <h1>Login with your NTU Account</h1>
