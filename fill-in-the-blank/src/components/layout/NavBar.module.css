@@ -1,0 +1,30 @@
+.navBar {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  background-color: #252b42;
+}
+
+.websiteTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 40px;
+  color: white;
+}
+
+.navBarButtonsRow {
+  width: 50vw;
+  height: 100%;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navBarLink {
+  font-size: 1.25rem;
+  color: white;
+  text-decoration: none;
+  border: 0px;
+}
