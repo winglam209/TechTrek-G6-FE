@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./GroupFinder.module.css";
+import styles from "../styles/pages/GroupFinder.module.css";
 
 const GroupFinder = () => {
   return (

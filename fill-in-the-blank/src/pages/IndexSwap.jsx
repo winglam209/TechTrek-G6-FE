@@ -1,7 +1,7 @@
 import { db } from "../firebase";
 import { collection, getDocs, where, query } from "firebase/firestore";
 
-import styles from "./IndexSwap.module.css";
+import styles from "../styles/pages/IndexSwap.module.css";
 
 const IndexSwap = () => {
   const q = query(collection(db, "Forum"), where("Comment", "==", "Hi"));

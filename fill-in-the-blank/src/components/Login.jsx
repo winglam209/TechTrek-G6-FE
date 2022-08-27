@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { authContext } from "../context/authContext";
 
-import styles from "./Login.module.css";
+import styles from "../styles/components/Login.module.css";
 
 const Login = () => {
   const { setAuth } = useContext(authContext);

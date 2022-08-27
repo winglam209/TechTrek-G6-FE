@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Forum.module.css";
+import styles from "../styles/pages/Forum.module.css";
 
 const Forum = () => {
   return (
