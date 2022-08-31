@@ -21,7 +21,10 @@ const NavBar = () => {
 
   return (
     <div className={styles.navBar}>
-      <header className={styles.websiteTitle}>NTU WebApp</header>
+      {/* <header className={styles.websiteTitle}>NTU WebApp</header> */}
+      <Link className={styles.websiteTitle} to="/">
+        NTYou
+      </Link>
       {user ? (
         <div className={styles.navBarLinksRow}>
           <Link className={styles.navBarLink} to="/indexSwap">

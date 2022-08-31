@@ -9,11 +9,12 @@
 }
 
 .websiteTitle {
-  color: white;
+  color: #db8c28;
   font-size: 2rem;
   font-weight: bold;
   margin-left: 5vw;
   margin-right: 40px;
+  text-decoration: none;
 }
 
 .navBarLinksRow {
