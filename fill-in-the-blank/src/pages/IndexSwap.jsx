@@ -4,7 +4,10 @@ import { collection, getDocs, where, query } from "firebase/firestore";
 import styles from "../styles/pages/IndexSwap.module.css";
 
 const IndexSwap = () => {
-  const q = query(collection(db, "Forum"), where("Comment", "==", "Hi"));
+  const q = query(
+    collection(db, "Index-Swap"),
+    where("Email", "==", "xyz@gmail.com")
+  );
 
   async function getData() {
     const querySnapshot = await getDocs(q);

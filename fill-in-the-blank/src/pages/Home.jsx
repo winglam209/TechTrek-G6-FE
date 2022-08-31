@@ -1,14 +1,14 @@
-import { useContext } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-import { authContext } from "../context/authContext";
+import { firebaseAuth } from "../firebase";
 
 import Login from "../components/Login";
 
 import styles from "../styles/pages/Home.module.css";
 
 const Home = () => {
-  const { auth } = useContext(authContext);
-  return <div className={styles.home}>{auth ? <></> : <Login />}</div>;
+  const [user, loading, error] = useAuthState(firebaseAuth);
+  return <div className={styles.home}>{user ? <></> : <Login />}</div>;
 };
 
 export default Home;

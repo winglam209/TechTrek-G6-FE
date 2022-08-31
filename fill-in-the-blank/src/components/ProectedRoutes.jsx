@@ -1,11 +1,12 @@
-import { useContext } from "react";
-
 import { Navigate, Outlet } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-import { authContext } from "../context/authContext";
+import { firebaseAuth } from "../firebase";
 
 export default function ProtectedRoutes() {
-  const { auth } = useContext(authContext);
+  const [user, loading, error] = useAuthState(firebaseAuth);
 
-  return auth ? <Outlet /> : <Navigate to="/" />;
+  console.log("Current Logged-in user:", user);
+
+  return user ? <Outlet /> : <Navigate to="/" />;
 }

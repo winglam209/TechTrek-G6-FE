@@ -1,20 +1,48 @@
-import { useContext } from "react";
+import { useState } from "react";
 
-import { authContext } from "../context/authContext";
+import { firebaseAuth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 import styles from "../styles/components/Login.module.css";
 
 const Login = () => {
-  const { setAuth } = useContext(authContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(firebaseAuth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("Signed in as: ", user);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
+  };
+
+  console.log("email:", email);
+  console.log("password:", password);
+
   return (
     <div className={styles.loginCard}>
       <h1>Login with your NTU Account</h1>
       <div className={styles.loginArea}>
-        <h2 className={styles.inputHeader}>Username</h2>
-        <input className={styles.inputField} />
+        <h2 className={styles.inputHeader}>Email</h2>
+        <input
+          className={styles.inputField}
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <h2 className={styles.inputHeader}>Password</h2>
-        <input className={styles.inputField} />
-        <button className={styles.loginButton} onClick={() => setAuth(true)}>
+        <input
+          className={styles.inputField}
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className={styles.loginButton} onClick={handleSignIn}>
           Login
         </button>
       </div>
