@@ -1,0 +1,19 @@
+.groupFinder {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100vw;
+}
+
+.groupFinderHeader {
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+
+.groupFinderBody {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100vw;
+}
