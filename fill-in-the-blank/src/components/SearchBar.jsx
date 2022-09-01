@@ -11,7 +11,7 @@ const SearchBar = ({
     <div>
       <input
         className={styles.searchBar}
-        placeholder="Enter Module Number"
+        placeholder="Enter Module Code"
         value={searchModuleCode}
         onChange={(e) => setSearchModuleCode(e.target.value)}
       />
