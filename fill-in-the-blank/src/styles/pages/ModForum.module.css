@@ -1,0 +1,69 @@
+.modForum {
+  display: flex;
+  flex-direction: column;
+  /* background-color: aquamarine; */
+  height: 90vh;
+  width: 100vw;
+}
+
+.modForumHeader {
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+.modForumBody {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  height: 90vh;
+  width: 60vw;
+  background-color: green;
+}
+
+.modForumDescriptionSection {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 60vw;
+}
+
+.modNameHeader {
+  align-self: center;
+}
+
+.modDescriptionP {
+  align-self: center;
+  background-color: red;
+  width: 50vw;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+
+.commentSection {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background-color: brown;
+}
+
+.commentInputBox {
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  background-color: blue;
+}
+
+.commentInputField {
+  width: 50vw;
+  height: 5vh;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 15px;
+  align-self: center;
+}
+
+.hr {
+  border: 1px solid black;
+  width: 100%;
+}

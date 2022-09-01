@@ -1,12 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import ForumModuleTableItem from "./ForumModuleTableItem";
 
 import styles from "../styles/components/ForumModuleTable.module.css";
 
 const ForumModuleTable = ({ moduleData }) => {
+  const navigate = useNavigate();
+
   const onClickTableItem = (moduleCode) => {
     console.log("clicked: " + moduleCode);
+    navigate(`/forum/${moduleCode}`);
   };
 
   return (
