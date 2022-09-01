@@ -2,11 +2,25 @@ import React from "react";
 
 import styles from "../styles/components/SearchBar.module.css";
 
-const SearchBar = () => {
+const SearchBar = ({
+  searchModuleCode,
+  setSearchModuleCode,
+  clickSearchButton,
+}) => {
   return (
     <div>
-      <input className={styles.searchBar} placeholder="Enter Module Number" />
-      <button className={styles.searchButton}>Search</button>
+      <input
+        className={styles.searchBar}
+        placeholder="Enter Module Number"
+        value={searchModuleCode}
+        onChange={(e) => setSearchModuleCode(e.target.value)}
+      />
+      <button
+        className={styles.searchButton}
+        onClick={() => clickSearchButton()}
+      >
+        Search
+      </button>
     </div>
   );
 };

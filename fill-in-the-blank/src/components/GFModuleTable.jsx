@@ -14,10 +14,8 @@ const ModuleTable = ({ moduleData }) => {
       {/* module header */}
       <div>
         <div className={styles.moduleTableTitleRow}>
-          <p className={styles.moduleNumberTitle}>Module Number</p>
-
+          <p className={styles.moduleNumberTitle}>Module Code</p>
           <p className={styles.moduleClassIndexTitle}>Class Index</p>
-
           <p className={styles.moduleNameTitle}>Module Name</p>
         </div>
         <hr className={styles.tableHeaderHr} />
