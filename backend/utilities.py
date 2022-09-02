@@ -43,6 +43,14 @@ def create_forum(data):
         }
         db.collection('Forum').add(tmp_dict)
     
+def create_users_collection(credentials):
+    for i in range(len(credentials)):
+        user = auth.get_user_by_email(credentials.iloc[i]['email'])
+        user_dict = {
+            'UID': user.uid,
+            'Name': credentials.iloc[i]['lastname'] + " " + credentials.iloc[i]['firstname']
+        }
+        db.collection("Users").add(user_dict)
 
 if __name__ == "__main__":
     cred = credentials.Certificate(credential)
