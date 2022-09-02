@@ -47,6 +47,7 @@ def create_forum(data):
 if __name__ == "__main__":
     cred = credentials.Certificate(credential)
     firebase_admin.initialize_app(cred)
+    db = firestore.client()
 
     # path_to_all_names = os.getenv('NAME_PATH')
     # all_names = pd.read_csv(path_to_all_names)
