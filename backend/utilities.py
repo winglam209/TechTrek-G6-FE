@@ -23,13 +23,15 @@ def create_default_users(names):
         )
 
 def create_modules(modules):
-    db = firestore.client()
+    indexes = ['10110', '10120', '10130', '10141', '10155']
     for i in range(len(modules)):
-        document_ref = db.collection('Courses').document(modules.iloc[i]['Module Code'])
-        document_ref.set({
+        module_dict = {
+            'Module Code': modules.iloc[i]['Module Code'],
             "Description": modules.iloc[i]['Description'],
-            "Module Name": modules.iloc[i]['Name of Module']
-        })
+            "Module Name": modules.iloc[i]['Module Name'],
+            "Index": indexes
+        }
+        db.collection("Module").add(module_dict)
 
 if __name__ == "__main__":
     cred = credentials.Certificate(credential)
