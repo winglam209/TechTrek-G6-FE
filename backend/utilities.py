@@ -33,6 +33,17 @@ def create_modules(modules):
         }
         db.collection("Module").add(module_dict)
 
+def create_forum(data):
+    for i in range(len(data)):
+        tmp_dict = {
+            "Comments": data.iloc[i]['Comment'],
+            "Date": data.iloc[i]['Date'],
+            "Module Code": data.iloc[i]['Module Code'],
+            'Name of User': data.iloc[i]['User']
+        }
+        db.collection('Forum').add(tmp_dict)
+    
+
 if __name__ == "__main__":
     cred = credentials.Certificate(credential)
     firebase_admin.initialize_app(cred)
