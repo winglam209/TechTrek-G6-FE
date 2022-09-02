@@ -52,6 +52,42 @@ def create_users_collection(credentials):
         }
         db.collection("Users").add(user_dict)
 
+def create_swap(modules, names):
+    from random import randint
+
+    indexes = ['10110', '10120', '10130', '10141', '10155']
+    max_mod = len(modules)
+    max_name = len(names)
+    max_index = len(indexes)
+
+    for i in range(3):
+        module_chosen = randint(0, max_mod-1)
+        module_code = modules.iloc[module_chosen]['Module Code']
+        name_selected = []
+        for j in range(5):
+            name = randint(0, max_name-1)
+            while name in name_selected:
+                name = randint(0, max_name-1)
+            name_selected.append(name)
+            name_str = names.iloc[name]['lastname'] + " " + names.iloc[name]['firstname']
+            email_str = names.iloc[name]['email']
+
+            index_obtained = randint(0, max_index-1)
+            index_wanted = randint(0, max_index-1)
+
+            while index_obtained == index_wanted:
+                index_obtained = randint(0, max_index-1)
+                index_wanted = randint(0, max_index-1)
+            
+            swap_dictionary = {
+                "Email": email_str,
+                "Name": name_str,
+                "Module Code": module_code,
+                "IndexObtained": indexes[index_obtained],
+                "IndexWanted": indexes[index_wanted]
+            }
+            db.collection("Index-Swap").add(swap_dictionary)
+
 if __name__ == "__main__":
     cred = credentials.Certificate(credential)
     firebase_admin.initialize_app(cred)
