@@ -48,7 +48,7 @@ def create_users_collection(credentials):
         user = auth.get_user_by_email(credentials.iloc[i]['email'])
         user_dict = {
             'UID': user.uid,
-            'Name': credentials.iloc[i]['lastname'] + " " + credentials.iloc[i]['firstname']
+            'Name': credentials.iloc[i]['firstname'] + " " + credentials.iloc[i]['lastname']
         }
         db.collection("Users").add(user_dict)
 
@@ -69,7 +69,7 @@ def create_swap(modules, names):
             while name in name_selected:
                 name = randint(0, max_name-1)
             name_selected.append(name)
-            name_str = names.iloc[name]['lastname'] + " " + names.iloc[name]['firstname']
+            name_str = names.iloc[name]['firstname'] + " " + names.iloc[name]['lastname']
             email_str = names.iloc[name]['email']
 
             index_obtained = randint(0, max_index-1)
