@@ -88,6 +88,17 @@ def create_swap(modules, names):
             }
             db.collection("Index-Swap").add(swap_dictionary)
 
+def create_grp_finder(data):
+    for i in range(len(data)):
+        data_dict = {
+            "Email": data.iloc[i]['email'],
+            "Name": data.iloc[i]['name'],
+            "Index": str(data.iloc[i]['index']),
+            "Intro": data.iloc[i]['intro'],
+            "Module Code": data.iloc[i]['module code']
+        }
+        db.collection("Group-Finder").add(data_dict)
+
 if __name__ == "__main__":
     cred = credentials.Certificate(credential)
     firebase_admin.initialize_app(cred)
