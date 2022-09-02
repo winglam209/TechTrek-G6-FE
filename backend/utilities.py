@@ -104,10 +104,19 @@ if __name__ == "__main__":
     firebase_admin.initialize_app(cred)
     db = firestore.client()
 
-    # path_to_all_names = os.getenv('NAME_PATH')
-    # all_names = pd.read_csv(path_to_all_names)
-    # create_default_users(all_names)
+    path_to_all_names = os.getenv('NAME_PATH')
+    all_names = pd.read_csv(path_to_all_names)
+    create_default_users(all_names)
 
-    path_to_modules = os.getenv('MOD_PATH')
-    modules = pd.read_excel(path_to_modules)
+    path_to_data = os.getenv('DATA_PATH')
+    modules = pd.read_excel(path_to_data, sheet_name="Courses")
     create_modules(modules)
+
+    forum_data = pd.read_excel(path_to_data, sheet_name="Forum")
+    create_forum(forum_data)
+
+    create_users_collection(all_names)
+    create_swap(modules, all_names)
+    
+    group_data = pd.read_excel(path_to_data, sheet_name="GroupFinder")
+    create_grp_finder(group_data)
