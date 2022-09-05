@@ -19,7 +19,11 @@ const IndexSwap = () => {
   const [searchModuleCode, setSearchModuleCode] = useState("");
   const [searchCurrentIndex, setSearchCurrentIndex] = useState("");
   const [searchDesiredIndex, setSearchDesiredIndex] = useState("");
+
   const [searchState, setSearchState] = useState(false);
+  // const [queryModuleCode, setQueryModuleCode] = useState([]);
+  // const [queryCurrentIndex, setQueryCurrentIndex] = useState([]);
+  // const [queryDesiredIndex, setQueryDesiredIndex] = useState([]);
 
   const navigate = useNavigate();
 
@@ -38,79 +42,92 @@ const IndexSwap = () => {
     setModuleData(result);
   };
 
+  async function validateCourseCode() {
+    let result = [];
+    const courseCodeSearchQuery = query(
+      collection(db, "Module"),
+      where("Module Code", "==", searchModuleCode)
+    );
+    const querySnapshot = await getDocs(courseCodeSearchQuery);
+
+    querySnapshot.forEach((doc) => {
+      result.push(doc.data());
+    });
+
+    return result;
+  };
+
+  async function validateCurrentIndexNum() {
+    let result = [];
+    const currentIndexNumSearchQuery = query(
+      collection(db, "Module"),
+      where("Module Code", "==", searchModuleCode),
+      where("Index", "array-contains", searchCurrentIndex)
+    );
+    const querySnapshot = await getDocs(currentIndexNumSearchQuery);
+
+    querySnapshot.forEach((doc) => {
+      result.push(doc.data());
+    });
+
+    return result;
+  };
+
+  async function validateDesiredIndexNum() {
+    let result = [];
+    const desiredIndexNumSearchQuery = query(
+      collection(db, "Module"),
+      where("Module Code", "==", searchModuleCode),
+      where("Index", "array-contains", searchDesiredIndex)
+    );
+    const querySnapshot = await getDocs(desiredIndexNumSearchQuery);
+
+    querySnapshot.forEach((doc) => {
+      result.push(doc.data());
+    });
+
+    return result;
+  };
+
+  async function checkInputs(){
+    if (searchModuleCode === "" || searchCurrentIndex==="" || searchDesiredIndex===""){
+        window.alert("Please fill up all search fields!");
+    }
+    else {
+      let checkCourseData = await validateCourseCode();
+      let checkCurrentIndex = await validateCurrentIndexNum();
+      let checkDesiredIndex = await validateDesiredIndexNum();
+      //console.log(currentIndexData.length);
+
+      if (checkCourseData.length === 0){
+          window.alert("Invalid Course Code!")
+      }
+      else if (checkCurrentIndex.length === 0){
+          window.alert("Invalid Current Index Number!")
+      }
+      else if (checkDesiredIndex.length === 0){
+          window.alert("Invalid Desired Index Number!")
+      }
+      else if (searchCurrentIndex===searchDesiredIndex){
+          window.alert("You have already obtained the index that you want!")
+      }
+      else {
+          navigate(`/indexSwap/${searchModuleCode}/${searchCurrentIndex}/${searchDesiredIndex}`);
+      }
+    }
+  }
+
+  const clickSearchButton = (searchModuleCode,searchCurrentIndex,searchDesiredIndex) => {
+    setSearchState(!searchState);
+    checkInputs();
+    console.log(searchModuleCode+";"+searchCurrentIndex+";"+searchDesiredIndex);
+  };
+
+
   useEffect(() => {
     getIndexSwapData();
   }, [searchState]);
 
-  const clickSearchButton = (searchModuleCode,searchCurrentIndex,searchDesiredIndex) => {
-    setSearchState(!searchState);
-    async function validateCourseCode() {
-      let result = [];
-      const courseCodeSearchQuery = query(
-        collection(db, "Module"),
-        where("Module Code", "==", searchModuleCode)
-      );
-      const querySnapshot = await getDocs(courseCodeSearchQuery);
-
-      querySnapshot.forEach((doc) => {
-        result.push(doc.data());
-      });
-
-      return result.items;
-    };
-
-    async function validateCurrentIndexNum() {
-      let result = [];
-      const currentIndexNumSearchQuery = query(
-        collection(db, "Module"),
-        where("Module Code", "==", searchModuleCode),
-        where("Index", "array-contains", searchCurrentIndex)
-      );
-      const querySnapshot = await getDocs(currentIndexNumSearchQuery);
-
-      querySnapshot.forEach((doc) => {
-        result.push(doc.data());
-      });
-
-      return result.items;
-    };
-
-    async function validateDesiredIndexNum() {
-      let result = [];
-      const desiredIndexNumSearchQuery = query(
-        collection(db, "Module"),
-        where("Module Code", "==", searchModuleCode),
-        where("Index", "array-contains", searchDesiredIndex)
-      );
-      const querySnapshot = await getDocs(desiredIndexNumSearchQuery);
-
-      querySnapshot.forEach((doc) => {
-        result.push(doc.data());
-      });
-
-      return result.items;
-    };
-
-    if (searchModuleCode === "" || searchCurrentIndex==="" || searchDesiredIndex===""){
-        window.alert("Please fill up all search fields!");
-    }
-    else if (validateCourseCode.length === 0){
-        window.alert("Invalid Course Code!" +validateCourseCode.length+"  1")
-    }
-    else if (validateCurrentIndexNum.length === 0){
-        window.alert("Invalid Index Number!")
-    }
-    else if (validateDesiredIndexNum.length === 0){
-        window.alert("Invalid Index Number!")
-    }
-    else if (searchCurrentIndex===searchDesiredIndex){
-        window.alert("You have already obtained the index that you want!")
-    }
-    else {
-        navigate(`/indexSwap/${searchModuleCode}/${searchCurrentIndex}/${searchDesiredIndex}`);
-    }
-    console.log(searchModuleCode+";"+searchCurrentIndex+";"+searchDesiredIndex);
-  };
 
   return (
     <div className={styles.indexSwap}>
