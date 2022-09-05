@@ -1,0 +1,51 @@
+.moduleTableItemRow {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  width: 70vw;
+}
+
+.moduleTableItemNumber {
+  font-size: 20px;
+  font-weight: bold;
+  width: 190px;
+}
+
+.moduleTableItemCurrentIndex {
+  font-size: 20px;
+  font-weight: bold;
+  width: 195px;
+}
+
+.moduleTableDesiredIndex {
+  font-size: 20px;
+  font-weight: bold;
+  width: 190px;
+}
+
+.moduleTableName {
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+}
+
+.moduleRequestButton {
+  background: green;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: right;
+  font-size: 17px;
+  padding: 10px;
+  width: 7vw;
+}
+
+.moduleRequestButton:hover {
+  background: darkgreen;
+}
+
+.itemHr {
+  width: 95%;
+}
