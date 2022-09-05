@@ -10,7 +10,7 @@ const ModuleTable = ({ moduleData }) => {
 
   const onClickTableItem = (moduleCode, classIndex) => {
     console.log("clicked: " + moduleCode + " " + classIndex);
-    navigate(`/forum/${moduleCode}/${classIndex}`);
+    navigate(`/groupFinder/${moduleCode}/${classIndex}`);
   };
 
   return (
