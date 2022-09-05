@@ -21,8 +21,8 @@ const IndexSwapSearch = () => {
     collection(db, "Index-Swap"),
     where("Email", "!=", user.email),
     where("Module Code", "==", moduleCode),
-    where("IndexObtained", "==", currentIndex),
-    where("IndexWanted", "==", desiredIndex)
+    where("IndexObtained", "==", desiredIndex),
+    where("IndexWanted", "==", currentIndex)
   );
 
   async function getIndexSwapData() {
@@ -36,7 +36,7 @@ const IndexSwapSearch = () => {
   }
 
   useEffect(() => {
-      //getIndexSwapData();
+      getIndexSwapData();
   });
 
   return (
