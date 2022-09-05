@@ -1,12 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import GFModuleTableItem from "./GFModuleTableItem";
 
 import styles from "../styles/components/GFModuleTable.module.css";
 
 const ModuleTable = ({ moduleData }) => {
+  const navigate = useNavigate();
+
   const onClickTableItem = (moduleCode, classIndex) => {
     console.log("clicked: " + moduleCode + " " + classIndex);
+    navigate(`/forum/${moduleCode}/${classIndex}`);
   };
 
   return (

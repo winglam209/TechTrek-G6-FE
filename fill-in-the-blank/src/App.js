@@ -12,6 +12,7 @@ import IndexSwapSearch from "./pages/IndexSwapSearch";
 import Forum from "./pages/Forum";
 import ModForum from "./pages/ModForum";
 import Loader from "./components/Loader";
+import GFModClassPage from "./pages/GFModClassPage";
 
 function App() {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -29,6 +30,10 @@ function App() {
               <Route path="/indexSwap" element={<IndexSwap />} />
               <Route path="/indexSwap/:moduleCode/:currentIndex/:desiredIndex" element={<IndexSwapSearch />} />
               <Route path="/groupFinder" element={<GroupFinder />} />
+              <Route
+                path="/groupFinder/:moduleCode/:classIndex"
+                element={<GFModClassPage />}
+              />
               <Route path="/forum" element={<Forum />} />
               <Route path="/forum/:moduleCode" element={<ModForum />} />
             </Route>
