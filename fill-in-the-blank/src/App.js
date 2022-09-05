@@ -8,6 +8,7 @@ import NavBar from "./components/layout/NavBar";
 import Home from "./pages/Home";
 import GroupFinder from "./pages/GroupFinder";
 import IndexSwap from "./pages/IndexSwap";
+import IndexSwapSearch from "./pages/IndexSwapSearch";
 import Forum from "./pages/Forum";
 import ModForum from "./pages/ModForum";
 import Loader from "./components/Loader";
@@ -26,6 +27,7 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/indexSwap" element={<IndexSwap />} />
+              <Route path="/indexSwap/:moduleCode/:currentIndex/:desiredIndex" element={<IndexSwapSearch />} />
               <Route path="/groupFinder" element={<GroupFinder />} />
               <Route path="/forum" element={<Forum />} />
               <Route path="/forum/:moduleCode" element={<ModForum />} />
