@@ -18,6 +18,23 @@
   width: 100vw;
 }
 
+.createReqButton {
+  background: blue;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: right;
+  font-size: 17px;
+  padding: 10px;
+  width: 15vw;
+  margin-bottom: 25px;
+}
+
+.createReqButton:hover {
+  background: darkblue;
+}
+
 .handleOverflow{
   overflow-y: scroll;
   overflow-x: hidden;
