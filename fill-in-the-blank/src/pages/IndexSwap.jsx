@@ -21,9 +21,6 @@ const IndexSwap = () => {
   const [searchDesiredIndex, setSearchDesiredIndex] = useState("");
 
   const [searchState, setSearchState] = useState(false);
-  // const [queryModuleCode, setQueryModuleCode] = useState([]);
-  // const [queryCurrentIndex, setQueryCurrentIndex] = useState([]);
-  // const [queryDesiredIndex, setQueryDesiredIndex] = useState([]);
 
   const navigate = useNavigate();
 
@@ -125,7 +122,9 @@ const IndexSwap = () => {
 
 
   useEffect(() => {
-    getIndexSwapData();
+    if (searchState===false){
+      getIndexSwapData();
+    }
   }, [searchState]);
 
 
@@ -136,7 +135,10 @@ const IndexSwap = () => {
       <h2 className={styles.indexSwapHeader}>Your Requests</h2>
       <div className={styles.indexSwapBody}>
         <div className={styles.handleOverflow}>
-          <IndexSwapTable moduleData={moduleData} />
+          <IndexSwapTable
+            moduleData={moduleData}
+            updateTable={getIndexSwapData}
+          />
           </div>
       </div>
 
