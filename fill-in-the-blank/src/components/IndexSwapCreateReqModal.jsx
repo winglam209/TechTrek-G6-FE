@@ -23,6 +23,7 @@ const IndexSwapCreateReqModal = ( props ) => {
       "IndexWanted": desiredIndex,
       "Module Code": moduleCode
     });
+    window.alert("Creation of request is successful!");
   };
 
 

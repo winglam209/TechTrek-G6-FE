@@ -34,6 +34,7 @@ const IndexSwapCancelModal = ( props ) => {
     });
 
     updateTable();
+    window.alert("Delete of request is successful!")
   };
 
   return (
