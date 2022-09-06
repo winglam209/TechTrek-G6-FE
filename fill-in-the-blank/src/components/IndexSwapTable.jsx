@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import IndexSwapTableItem from "./IndexSwapTableItem";
 import styles from "../styles/components/IndexSwapTable.module.css";
 
-const IndexSwapTable = ({ moduleData }) => {
+const IndexSwapTable = ({ moduleData, updateTable }) => {
   const navigate = useNavigate();
 
   return (
@@ -25,6 +25,7 @@ const IndexSwapTable = ({ moduleData }) => {
           <IndexSwapTableItem
             module={module}
             key={module["Module Code"]}
+            updateTable={updateTable}
             />
           );
         })

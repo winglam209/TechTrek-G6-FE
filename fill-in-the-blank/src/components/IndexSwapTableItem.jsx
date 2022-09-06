@@ -1,9 +1,12 @@
 import React from "react";
 
 import styles from "../styles/components/IndexSwapTableItem.module.css";
+import IndexSwapCancelModal from "./IndexSwapCancelModal";
 
 const IndexSwapTableItem = React.forwardRef(
-  ({ module }, ref) => {
+  ({ module, updateTable }, ref) => {
+    const [modalShow, setModalShow] = React.useState(false);
+
     return (
       <span ref={ref}>
         <div className={styles.moduleTableItemRow}>
@@ -14,12 +17,20 @@ const IndexSwapTableItem = React.forwardRef(
           <p className={styles.moduleTableDesiredIndex}>{module["IndexWanted"]}</p>
           <button
             className={styles.moduleCancelButton}
-            onClick={ () => {console.log("clicked: " + module["Module Code"]+";"+module["Name"])} }
+            onClick={ () => {setModalShow(true); console.log("clicked: " + module["Module Code"]+";"+module["Name"])} }
           >
             Cancel
           </button>
         </div>
         <hr className={styles.itemHr} />
+        <div>
+            <IndexSwapCancelModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              module={module}
+              updateTable={updateTable}
+             />
+        </div>
       </span>
     );
   }
