@@ -27,9 +27,9 @@ transporter.verify((err, success) => {
 
 app.post("/sendRequest", function (req, res) {
  let mailOptions = {
-   from: process.env.EMAIL,
-   to: `useforprojectt@gmail.com`, //random account (users need to register gmail)
-   subject: `Message regarding index swap from: ${req.body.mailState.sendmail} to ${req.body.mailState.recvEmail}`,
+   from: process.env.EMAIL, //${req.body.mailState.sendEmail}, not sure if can change (maybe need authorsise user)
+   to: `useforprojectt@gmail.com`, //${req.body.mailState.recvEmail}, random account (users need to register gmail)
+   subject: `${req.body.mailState.subject}`,
    text: `${req.body.mailState.message}`,
  };
 
