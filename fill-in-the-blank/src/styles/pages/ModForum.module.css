@@ -3,7 +3,7 @@
   flex-direction: column;
   /* background-color: aquamarine; */
   height: 90vh;
-  width: 100vw;
+  /* width: 100vw; */
 }
 
 .modForumHeader {
@@ -16,7 +16,7 @@
   align-self: center;
   height: 90vh;
   width: 60vw;
-  background-color: green;
+  /* background-color: green; */
 }
 
 .modForumDescriptionSection {
@@ -32,9 +32,10 @@
 
 .modDescriptionP {
   align-self: center;
-  background-color: red;
+  /* background-color: red; */
   width: 50vw;
   font-size: 20px;
+  display: block;
   word-wrap: break-word;
 }
 
@@ -43,7 +44,7 @@
   flex-direction: column;
   padding-left: 2vw;
   padding-right: 2vw;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 .commentInputBox {
@@ -51,7 +52,7 @@
   display: flex;
   align-self: center;
   justify-content: center;
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 .commentInputField {

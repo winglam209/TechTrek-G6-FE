@@ -1,19 +1,53 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { db } from "../firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { db, firebaseAuth } from "../firebase";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  addDoc,
+  Timestamp,
+  orderBy,
+} from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import styles from "../styles/pages/ModForum.module.css";
+import UserAvatar from "../components/UserAvatar";
+import ForumComment from "../components/ForumComment";
 
 const ModForum = () => {
+  const [user, loading, error] = useAuthState(firebaseAuth);
+
   const [moduleData, setModuleData] = useState();
+  const [userName, setUserName] = useState();
+  const [forumComments, setForumComments] = useState();
+  const [userCommentText, setUserCommentText] = useState("");
+  const [refreshPage, setRefreshPage] = useState(true);
+
   const { moduleCode } = useParams();
+
+  const queryUserName = query(
+    collection(db, "Users"),
+    where("UID", "==", user.uid)
+  );
 
   const queryMod = query(
     collection(db, "Module"),
     where("Module Code", "==", moduleCode)
   );
+
+  async function getUserName() {
+    let result = [];
+    const querySnapshot = await getDocs(queryUserName);
+
+    querySnapshot.forEach((doc) => {
+      result.push(doc.data());
+    });
+
+    setUserName(result[0].Name);
+  }
 
   async function getModuleData() {
     let result = [];
@@ -25,11 +59,46 @@ const ModForum = () => {
     setModuleData(result[0]);
   }
 
+  async function getForumComments(modueCode) {
+    let result = [];
+    const queryForumComments = query(
+      collection(db, "Forum"),
+      where("Module Code", "==", modueCode),
+      orderBy("Date", "desc")
+    );
+    const querySnapshot = await getDocs(queryForumComments);
+
+    querySnapshot.forEach((doc) => {
+      result.push(doc.data());
+    });
+    setForumComments(result);
+  }
+
   useEffect(() => {
     getModuleData();
+    getUserName();
   }, [moduleCode]);
 
+  useEffect(() => {
+    moduleData && getForumComments(moduleData["Module Code"]);
+  }, [moduleData, refreshPage]);
+
   console.log(moduleData);
+  console.log(forumComments);
+
+  console.log(userCommentText);
+
+  async function postUserComment() {
+    const docRef = await addDoc(collection(db, "Forum"), {
+      "Name of User": userName,
+      Comments: userCommentText,
+      Date: Timestamp.now(),
+      "Module Code": moduleCode,
+    });
+    console.log("Document written with ID: ", docRef.id);
+
+    setRefreshPage(!refreshPage);
+  }
 
   return (
     moduleData && (
@@ -49,12 +118,30 @@ const ModForum = () => {
 
             {/* user comment input */}
             <div className={styles.commentInputBox}>
-              <textarea className={styles.commentInputField}></textarea>
-              <button>Post</button>
+              <UserAvatar userName={userName} />
+              <textarea
+                className={styles.commentInputField}
+                onChange={(e) => setUserCommentText(e.target.value)}
+              >
+                {userCommentText}
+              </textarea>
+              <button onClick={postUserComment}>Post</button>
             </div>
             <hr className={styles.hr} />
 
-            {/* user post */}
+            {/* <ForumComment /> */}
+            {forumComments &&
+              forumComments.map((comment, index) => {
+                return (
+                  <ForumComment
+                    key={index}
+                    currentUserName={userName}
+                    commentUserName={comment["Name of User"]}
+                    commentDate={comment.Date}
+                    commentText={comment.Comments}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

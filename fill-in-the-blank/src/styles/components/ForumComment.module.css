@@ -1,0 +1,44 @@
+.hr {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.userCommentRow {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+  width: 55vw;
+  /* background-color: yellow; */
+}
+
+.userCommentContent {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 55vw;
+  /* background-color: orange; */
+}
+
+.userCommentInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.userCommentEditButton {
+  margin-left: auto;
+  height: 25px;
+  align-items: center;
+  font-size: 15px;
+}
+
+.userCommentName {
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 1vw;
+}
+
+.userCommentText {
+  font-size: 15px;
+}
