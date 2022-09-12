@@ -18,7 +18,7 @@ const UserAvatar = ({ userName }) => {
 
   useEffect(() => {
     getUserInitials(userName);
-  }, []);
+  }, [userName]);
 
   return (
     <div className={styles.avatar}>
