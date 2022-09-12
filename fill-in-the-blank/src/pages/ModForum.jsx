@@ -97,8 +97,11 @@ const ModForum = () => {
     });
     console.log("Document written with ID: ", docRef.id);
 
+    setUserCommentText("");
     setRefreshPage(!refreshPage);
   }
+
+  console.log(userCommentText, "userCommentText");
 
   return (
     moduleData && (
@@ -122,6 +125,7 @@ const ModForum = () => {
               <textarea
                 className={styles.commentInputField}
                 onChange={(e) => setUserCommentText(e.target.value)}
+                value={userCommentText}
               >
                 {userCommentText}
               </textarea>
