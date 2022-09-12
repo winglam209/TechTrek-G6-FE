@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 const IndexSwapEmailReqModal = ( props ) => {
   const [user, loading, error] = useAuthState(firebaseAuth);
+  const [buttonClick, setButtonClick] = useState(false);
   const data = props.module
   const show = props.show
   const onHide = props.onHide
@@ -24,6 +25,7 @@ const IndexSwapEmailReqModal = ( props ) => {
 
 
    const submitRequest = async (e) => {
+    setButtonClick(true);
     console.log({ mailState });
     const response = await fetch("http://localhost:3001/sendRequest", {
       method: "POST",
@@ -37,10 +39,12 @@ const IndexSwapEmailReqModal = ( props ) => {
         const resData = await res;
         console.log(resData);
         if (resData.status === "success") {
-          alert("Message Sent");
+          await alert("Message Sent");
         } else if (resData.status === "fail") {
-          alert("Message failed to send");
+          await alert("Message failed to send");
         }
+        onHide();
+        setButtonClick(false);
       })
   };
 
@@ -93,9 +97,9 @@ const IndexSwapEmailReqModal = ( props ) => {
           }
         }
       >
-        <Button variant="secondary" onClick={onHide}>Cancel</Button>
+        <Button variant="secondary" onClick={onHide} disabled={buttonClick}>Cancel</Button>
         &emsp;&emsp;
-        <Button variant="primary" onClick={()=>{submitRequest(); onHide()}}>Confirm</Button>
+        <Button variant="primary" onClick={()=>{submitRequest();}} disabled={buttonClick}>Confirm</Button>
       </Modal.Footer>
     </Modal>
   );
