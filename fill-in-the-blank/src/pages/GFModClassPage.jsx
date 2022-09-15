@@ -4,9 +4,11 @@ import { db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import styles from "../styles/pages/GFModClassPage.module.css";
 import ProfileCard from "../components/ProfileCard";
+import { useState } from "react";
 
 const GFModClassPage = () => {
   const { moduleCode, classIndex } = useParams();
+  const [ moduleNameHolder, setModuleName] = useState("");
 
   console.log(moduleCode, classIndex);
 
@@ -17,15 +19,15 @@ const GFModClassPage = () => {
   );
 
   async function queryInfo() {
-    let result = [];
     const querySnapshot = await getDocs(ModuleNameQuery);
     const res = await querySnapshot["_snapshot"]["docs"]["keyedMap"]["root"]["value"]["data"]["value"]["mapValue"]["fields"]["Module Name"]
-    sessionStorage.setItem("moduleName",JSON.stringify(res))
-    
-    console.log(sessionStorage.getItem("moduleName"))
+    //sessionStorage.setItem("moduleName",JSON.stringify(res))
+    setModuleName(res);
+    //console.log(sessionStorage.getItem("moduleName"))
   }
   queryInfo()
-  var moduleName = sessionStorage.getItem("moduleName");
+  //var moduleName = sessionStorage.getItem("moduleName");
+  var moduleName = JSON.stringify(moduleNameHolder)
   console.log(moduleName)
   moduleName = moduleName.slice(16,-2)
 

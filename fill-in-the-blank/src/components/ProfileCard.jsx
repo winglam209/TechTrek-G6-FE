@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UserAvatar from "./UserAvatar";
 
 class ProfileCard extends Component {
   state = {
@@ -45,14 +46,18 @@ class ProfileCard extends Component {
       <div className="clearfix">
         <div className="row">
           {this.state.data.map(data => (
+            <span>
             <div className="col-md-4 animated fadeIn" key={data.id.value}>
               <div className="card">
                 <div className="card-body">
                   <div className="avatar">
-                    <img
+                    {/* <img
                       src={data.picture.large}
                       className="card-img-top"
                       alt=""
+                    /> */}
+                    <UserAvatar userName=
+                  { data.name.first + " " + data.name.last}
                     />
                   </div>
                   <h5 className="card-title">
@@ -61,15 +66,17 @@ class ProfileCard extends Component {
                       this.uppercase(data.name.last)}
                   </h5>
                   <p className="card-text">
-                    {data.location.city +
+                    {/* {data.location.city +
                       ", " +
                       this.uppercase(data.location.state)}
-                    <br />
-                    <span className="phone">{data.phone}</span>
+                    <br /> */}
+                    {/* <span className="phone">{data.phone}</span> */}
+                    Looking for group
                   </p>
                 </div>
               </div>
             </div>
+            </span>
           ))}
         </div>
         <button
