@@ -46,7 +46,7 @@ class ProfileCard extends Component {
       <div className="clearfix">
         <div className="row">
           {this.state.data.map(data => (
-            <span>
+            <span ref={ref}>
             <div className="col-md-4 animated fadeIn" key={data.id.value}>
               <div className="card">
                 <div className="card-body">
