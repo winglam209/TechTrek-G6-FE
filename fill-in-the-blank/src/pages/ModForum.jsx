@@ -69,7 +69,7 @@ const ModForum = () => {
     const querySnapshot = await getDocs(queryForumComments);
 
     querySnapshot.forEach((doc) => {
-      result.push(doc.data());
+      result.push({ id: doc.id, data: doc.data() });
     });
     setForumComments(result);
   }
@@ -139,10 +139,13 @@ const ModForum = () => {
                 return (
                   <ForumComment
                     key={index}
+                    commentId={comment.id}
                     currentUserName={userName}
-                    commentUserName={comment["Name of User"]}
-                    commentDate={comment.Date}
-                    commentText={comment.Comments}
+                    commentUserName={comment.data["Name of User"]}
+                    commentDate={comment.data.Date}
+                    commentText={comment.data.Comments}
+                    refreshPage={refreshPage}
+                    setRefreshPage={setRefreshPage}
                   />
                 );
               })}
