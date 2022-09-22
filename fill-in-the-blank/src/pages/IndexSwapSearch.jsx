@@ -20,7 +20,7 @@ const IndexSwapSearch = () => {
   const [moduleData, setModuleData] = useState([]);
   const { moduleCode, currentIndex, desiredIndex } = useParams();
   const [modalShow, setModalShow] = React.useState(false);
-
+  const [noResults, setNoResults] = React.useState(false);
 
   const searchQuery = query(
     collection(db, "Index-Swap"),
@@ -34,10 +34,16 @@ const IndexSwapSearch = () => {
     let result = [];
     const querySnapshot = await getDocs(searchQuery);
 
+    setNoResults(false);
+    
     querySnapshot.forEach((doc) => {
       result.push(doc.data());
     });
     setModuleData(result);
+
+    if (result.length === 0){
+      setNoResults(true)
+    }
     return result;
   }
 
@@ -87,6 +93,8 @@ const IndexSwapSearch = () => {
         <div className={styles.handleOverflow}>
           <IndexSwapSearchTable
             moduleData={moduleData}
+            noResults={noResults}
+            resetNoResults={() => setNoResults(false)}
           />
           </div>
       </div>
