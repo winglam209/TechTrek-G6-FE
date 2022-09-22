@@ -4,7 +4,44 @@ import { useNavigate } from "react-router-dom";
 import IndexSwapSearchTableItem from "./IndexSwapSearchTableItem";
 import styles from "../styles/components/IndexSwapSearchTable.module.css";
 
-const IndexSwapSearchTable = ({ moduleData }) => {
+const IndexSwapSearchTable = ({ moduleData, noResults, resetNoResults }) => {
+
+function return_info(){
+    if (noResults === false){
+      // console.log("yes");
+      return(
+        moduleData.map((module) => {
+          return (
+            <IndexSwapSearchTableItem
+              module={module}
+              key={module.Email}
+             />
+            );
+        })
+      );
+    }
+    else if (noResults === true) {
+      // console.log("no");
+      return(
+        <div
+          style={
+            {
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }
+          }
+        >
+          <p style={{fontWeight: "bold", fontSize: 20, color:"red"}}>
+            <br />
+            <br />
+            &emsp;&emsp;&emsp;&emsp; No Results Found!
+            <br /> Please Create a New Request Below!
+          </p>
+        </div>
+      );
+    }
+  }
 
   return (
     <div>
@@ -20,15 +57,7 @@ const IndexSwapSearchTable = ({ moduleData }) => {
 
       </div>
       {/* module table content */}
-      {moduleData.map((module) => {
-        return (
-          <IndexSwapSearchTableItem
-            module={module}
-            key={module.Email}
-           />
-          );
-        })
-      }
+      {return_info()}
     </div>
   );
 };
