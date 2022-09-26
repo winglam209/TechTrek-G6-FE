@@ -1,5 +1,21 @@
+import { collection, query, where } from "firebase/firestore";
 import React, { Component } from "react";
+//import React, { useState } from "react";
 import UserAvatar from "./UserAvatar";
+import { db } from "../firebase";
+
+// const getName = () => {
+//   const[name, setName] = useState("");
+//   name = "";
+//   const userQuery = query(
+//     collection(db, "Module"),
+//   )
+
+//   async function queryInfo(){
+//     const querySnapshot = await getName(userQuery);
+//     console.log(querySnapshot)
+//   }
+//}
 
 class ProfileCard extends Component {
   state = {
@@ -8,6 +24,7 @@ class ProfileCard extends Component {
     page: 1,
     total_pages: null,
   };
+
 
   uppercase = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -25,6 +42,7 @@ class ProfileCard extends Component {
           total_pages: json.info.results,
         });
       });
+    console.log(data)
   };
 
   loadMore = () => {
