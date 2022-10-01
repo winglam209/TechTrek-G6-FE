@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { db } from "../firebase";
-import { doc, updateDoc, Timestamp } from "firebase/firestore";
+import { doc, updateDoc, Timestamp, deleteDoc } from "firebase/firestore";
 
 import dayjs from "dayjs";
 
@@ -49,6 +49,13 @@ const ForumComment = ({
     }
   }
 
+  async function deleteComment() {
+    const docRef = doc(db, "Forum", commentId);
+
+    await deleteDoc(docRef);
+    setRefreshPage(!refreshPage);
+  }
+
   return (
     <div>
       <div className={styles.userCommentRow}>
@@ -76,12 +83,20 @@ const ForumComment = ({
                     </button>
                   </div>
                 ) : (
-                  <button
-                    className={styles.userCommentEditButton}
-                    onClick={editComment}
-                  >
-                    edit
-                  </button>
+                  <div>
+                    <button
+                      className={styles.userCommentEditButton}
+                      onClick={editComment}
+                    >
+                      edit
+                    </button>
+                    <button
+                      className={styles.userCommentEditButton}
+                      onClick={deleteComment}
+                    >
+                      delete
+                    </button>
+                  </div>
                 ))
             }
           </div>
