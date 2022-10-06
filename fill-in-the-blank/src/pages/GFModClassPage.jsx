@@ -27,16 +27,19 @@ const GFModClassPage = () => {
   const [name, setName] = useState("");
   const [intro, setIntro] = useState("");
   const [email, setEmail] = useState("");
+  const [refresh, setRefresh] = useState(false);
 
   async function addProfile() {
     const docRef = await addDoc(collection(db, "Group-Finder"), {
-      "Email": email,
+      "Email": user.email,
       "Index": classIndex,
       "Intro": intro,
       "Module Code": moduleCode,
       "Name" : name
     });
     window.alert("Creation of profile is successful!");
+
+    setRefresh(!refresh);
   };
 
   console.log(moduleCode, classIndex);
@@ -57,7 +60,9 @@ const GFModClassPage = () => {
 
   const searchQuery = query(
     collection(db, "Group-Finder"),
-    where("Email", "==", user.email)
+    where("Email", "==", user.email),
+    where("Module Code", "==", moduleCode),
+    where("Index", "==", classIndex)
   );
 
   async function getSearchModuleData() {
@@ -75,7 +80,7 @@ const GFModClassPage = () => {
   useEffect(() => {
     queryInfo();
     getSearchModuleData();
-  }, [])
+  }, [refresh])
 
   //var moduleName = sessionStorage.getItem("moduleName");
   var moduleName = JSON.stringify(moduleNameHolder)
@@ -145,11 +150,6 @@ const GFModClassPage = () => {
                       </label>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <input type="text" name="name" onChange={(e)=> setName(e.target.value)}/>
-                      <label>
-                        Email:
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" name="name" onChange={(e)=> setEmail(e.target.value)}/>
-                      </label>
                       <label>
                         Short Intro:
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
