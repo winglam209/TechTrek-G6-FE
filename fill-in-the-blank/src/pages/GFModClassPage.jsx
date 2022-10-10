@@ -54,7 +54,7 @@ const GFModClassPage = () => {
 
 
 
-  console.log(moduleCode, classIndex);
+
   const [mailState, setMailState] = useState({
     subject: "You have someone who wants to group with you for CZ1015!",
     sendEmail: user.email,
@@ -96,6 +96,7 @@ const GFModClassPage = () => {
   }
 
   const searchQuery = query(
+    
     collection(db, "Group-Finder"),
     where("Email", "==", user.email),
     where("Module Code", "==", moduleCode),
@@ -105,6 +106,7 @@ const GFModClassPage = () => {
   async function getSearchModuleData() {
     let result = [];
     const querySnapshot = await getDocs(searchQuery);
+    console.log(moduleCode, classIndex);
 
     querySnapshot.forEach((doc) => {
       result.push({id: doc.id, data: doc.data()});
@@ -112,7 +114,7 @@ const GFModClassPage = () => {
     setUserData(result);
   }
 
-  console.log(userData, "this is user data")
+
 
   useEffect(() => {
     queryInfo();
@@ -121,7 +123,6 @@ const GFModClassPage = () => {
 
   //var moduleName = sessionStorage.getItem("moduleName");
   var moduleName = JSON.stringify(moduleNameHolder)
-  console.log(moduleName)
   moduleName = moduleName.slice(16,-2)
 
   const [showInfo, setShowInfo] = useState(false);
