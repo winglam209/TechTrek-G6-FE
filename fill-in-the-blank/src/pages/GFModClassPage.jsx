@@ -59,7 +59,7 @@ const GFModClassPage = () => {
     subject: "You have someone who wants to group with you for CZ1015!",
     sendEmail: user.email,
     recvEmail: "chenghanlee98@gmail.com",
-    message: "Hi, I would like to group with you for CZ1015! Kindly respond if interested. Thanks."
+    message: "Hi, I would like to group with you for CZ1015! Kindly respond if interested. My telegram handle is @perry. Thanks."
  });
   const submitRequest = async (e) => {
     console.log( mailState , "this is mailState");
@@ -259,7 +259,7 @@ const GFModClassPage = () => {
                   <Button variant="secondary" onClick={()=> setShowInfo(false)}>
                       Close
                     </Button>
-                  <Button disabled={buttonClick} variant="outlined" onClick={() => {setShowInfo(false);setShowSecondModal(true)}}>Group</Button>
+                  <Button disabled={buttonClick} variant="outlined" onClick={() => {setShowInfo(false);setShowSecondModal(true)}}>Email</Button>
                 </Modal.Footer>
               </Modal>
             <Modal

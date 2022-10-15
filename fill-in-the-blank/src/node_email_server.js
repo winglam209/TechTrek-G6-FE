@@ -28,7 +28,7 @@ transporter.verify((err, success) => {
 app.post("/sendRequest", function (req, res) {
  let mailOptions = {
    from: process.env.EMAIL, //${req.body.mailState.sendEmail}, not sure if can change (maybe need authorsise user)
-   to: `chenghanlee98@gmail.com`, //${req.body.mailState.recvEmail}, random account (users need to register gmail)
+   to: `ntyouase@gmail.com`, //${req.body.mailState.recvEmail}, random account (users need to register gmail)
    subject: `${req.body.mailState.subject}`,
    text: `${req.body.mailState.message}`,
  };
