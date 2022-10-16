@@ -88,13 +88,13 @@ const ForumComment = ({
                       className={styles.userCommentEditButton}
                       onClick={editComment}
                     >
-                      edit
+                      Edit
                     </button>
                     <button
-                      className={styles.userCommentEditButton}
+                      className={styles.userCommentDeleteButton}
                       onClick={deleteComment}
                     >
-                      delete
+                      Delete
                     </button>
                   </div>
                 ))

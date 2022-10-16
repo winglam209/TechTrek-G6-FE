@@ -129,7 +129,9 @@ const ModForum = () => {
               >
                 {userCommentText}
               </textarea>
-              <button onClick={postUserComment}>Post</button>
+              <button className={styles.postButton} onClick={postUserComment}>
+                Post
+              </button>
             </div>
             <hr className={styles.hr} />
 

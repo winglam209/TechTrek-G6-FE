@@ -62,9 +62,28 @@
   border: 1px solid black;
   font-size: 15px;
   align-self: center;
+  margin-left: 5px;
 }
 
 .hr {
   border: 1px solid black;
   width: 100%;
+}
+
+.postButton {
+  background: #2196f3;
+  border-left: none;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: left;
+  font-size: 17px;
+  padding: 10px;
+  width: 5vw;
+  margin-left: 5px;
+}
+
+.postButton:hover {
+  background: #0b7dda;
 }

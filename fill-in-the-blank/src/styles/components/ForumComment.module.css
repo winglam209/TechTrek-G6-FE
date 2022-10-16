@@ -27,10 +27,29 @@
 }
 
 .userCommentEditButton {
-  margin-left: auto;
-  height: 25px;
-  align-items: center;
+  background: #2196f3;
+  border-left: none;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: left;
   font-size: 15px;
+  width: 5vw;
+  margin-left: 5px;
+}
+
+.userCommentDeleteButton {
+  background: red;
+  border-left: none;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: left;
+  font-size: 15px;
+  width: 5vw;
+  margin-left: 5px;
 }
 
 .userCommentName {
@@ -41,4 +60,18 @@
 
 .userCommentText {
   font-size: 15px;
+}
+
+.button {
+  background: #2196f3;
+  border-left: none;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: left;
+  font-size: 17px;
+  padding: 10px;
+  width: 5vw;
+  margin-left: 5px;
 }
