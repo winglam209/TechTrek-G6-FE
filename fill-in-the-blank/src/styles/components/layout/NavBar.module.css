@@ -36,4 +36,13 @@
 .loginButton {
   position: absolute;
   right: 5vw;
+  border-left: none;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  float: left;
+  font-size: 15px;
+  width: 5vw;
+  margin-left: 5px;
+  padding: 5px;
 }

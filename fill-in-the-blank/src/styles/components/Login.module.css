@@ -33,4 +33,16 @@
 .loginButton {
   margin-top: 50px;
   width: 5vw;
+  background: #2196f3;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid grey;
+  color: white;
+  cursor: pointer;
+  float: left;
+  font-size: 17px;
+  padding: 10px;
+}
+
+.loginButton:hover {
+  background: #0b7dda;
 }

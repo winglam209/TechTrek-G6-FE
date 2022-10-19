@@ -13,6 +13,9 @@ import {
 } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+
 import styles from "../styles/pages/ModForum.module.css";
 import UserAvatar from "../components/UserAvatar";
 import ForumComment from "../components/ForumComment";
@@ -25,6 +28,7 @@ const ModForum = () => {
   const [forumComments, setForumComments] = useState();
   const [userCommentText, setUserCommentText] = useState("");
   const [refreshPage, setRefreshPage] = useState(true);
+  const [filter, setFilter] = useState("desc");
 
   const { moduleCode } = useParams();
 
@@ -64,7 +68,7 @@ const ModForum = () => {
     const queryForumComments = query(
       collection(db, "Forum"),
       where("Module Code", "==", modueCode),
-      orderBy("Date", "desc")
+      orderBy("Date", filter)
     );
     const querySnapshot = await getDocs(queryForumComments);
 
@@ -81,7 +85,7 @@ const ModForum = () => {
 
   useEffect(() => {
     moduleData && getForumComments(moduleData["Module Code"]);
-  }, [moduleData, refreshPage]);
+  }, [moduleData, refreshPage, filter]);
 
   console.log(moduleData);
   console.log(forumComments);
@@ -129,9 +133,21 @@ const ModForum = () => {
               >
                 {userCommentText}
               </textarea>
-              <button onClick={postUserComment}>Post</button>
+              <button className={styles.postButton} onClick={postUserComment}>
+                Post
+              </button>
             </div>
             <hr className={styles.hr} />
+            <div className={styles.filterRow}>
+              <p className={styles.filterTitle}>Filter by:</p>
+              <Select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              >
+                <MenuItem value="desc">Latest</MenuItem>
+                <MenuItem value="asc">Earliest</MenuItem>
+              </Select>
+            </div>
 
             {/* <ForumComment /> */}
             {forumComments &&
