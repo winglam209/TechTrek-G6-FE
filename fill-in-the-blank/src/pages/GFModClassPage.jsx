@@ -294,9 +294,9 @@ const GFModClassPage = () => {
         }
       >
         <div>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Are you sure you want to request for swap?
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Are you sure you want to group with this person?
           <p style={{fontWeight: "bold"}}>
-            An E-mail containing the request and your E-mail address will be sent to the requestee.
+            An E-mail containing your contact and your E-mail address will be sent to the person.
           </p>
         </div>
       </Modal.Body>
