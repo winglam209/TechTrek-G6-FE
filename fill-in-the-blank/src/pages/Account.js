@@ -2,21 +2,27 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import { StatsContainer } from "../components";
-import {data} from '../data/BankAccount'
 
 const Account = () => {
   const { showStats, isLoading, monthlyTransactions } = useAppContext();
-  console.log(data)
-  let user = 1;
-  let account = data.filter((account) => {return account.id === user})
-  console.log(account)
   //   useEffect(() => {
   //     showStats();
   //   }, []);
 
-  // if (isLoading) {
-  //   return <Loading center />;
-  // }
+  const rows = [
+    {
+        "AccountID": 621156213,
+        "UserID": 1,
+        "AccountType": "Saving",
+        "AcccountBalance": 70200.71
+    },
+    {
+        "AccountID": 958945214,
+        "UserID": 1,
+        "AccountType": "Current",
+        "AcccountBalance": 99720.46
+    },
+  ];
 
   return (
     <>
@@ -26,13 +32,17 @@ const Account = () => {
           <p>Let's work together to keep your finances in check!</p>
         </section>
         <StatsContainer />
+        <Table
+          rows={rows}
+          cols={cols}
+        />
       </Wrapper>
     </>
   );
 };
 
 const Wrapper = styled.main`
-  padding: 3rem;
+   padding: 3rem;
   .chart-overview {
     margin: 0 auto;
     width: 300px;
