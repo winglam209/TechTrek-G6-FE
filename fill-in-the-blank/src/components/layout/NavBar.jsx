@@ -32,13 +32,13 @@ const NavBar = () => {
       {user ? (
         <div className={styles.navBarLinksRow}>
           <Link className={styles.navBarLink} to="/indexSwap">
-            Index Swap
+            Dashboard
           </Link>
           <Link className={styles.navBarLink} to="/forum">
-            Forum
+            Transaction
           </Link>
           <Link className={styles.navBarLink} to="/groupFinder">
-            Group Finder
+            Profile
           </Link>
         </div>
       ) : (
