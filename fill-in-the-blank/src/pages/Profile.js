@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Textfield from "../components/Textfield";
 import styled from "styled-components";
+
 
 const users = [
   {
@@ -60,6 +61,12 @@ const Profile = () => {
   const [newAddress, setNewAddress] = useState(users[0].Address);
   const [updateSuccess, setUpdateSuccess] = useState(false);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setUpdateSuccess(false);
+    }, 3000);
+  }, []);
+
   const updateUser = (e) => {
     e.preventDefault();
     users[0] = {
@@ -94,7 +101,7 @@ const Profile = () => {
               name="Last Name"
               labelText="lastName"
               value={users[0].Lastname}
-              disabled='true'
+              disabled="true"
               // handleChange={handleChange}
             />
             <Textfield
