@@ -7,6 +7,7 @@ import { firebaseAuth } from "../../firebase";
 import logo from "../../assets/images/DBSBank.png"
 
 import styles from "../../styles/components/layout/NavBar.module.css";
+import ActionButton from "../ActionButton";
 
 const NavBar = () => {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -46,9 +47,8 @@ const NavBar = () => {
       )}
 
       {user ? (
-        <button className={styles.loginButton} onClick={logout}>
-          Log Out
-        </button>
+        <ActionButton colour="error" text="Log Out" onClick={logout}>
+        </ActionButton>
       ) : (
         <></>
       )}
