@@ -1,12 +1,15 @@
 import React from "react";
 import Textfield from "../components/Textfield";
 import styled from "styled-components";
+import Container from "../components/Container"
 
 const Profile = () => {
- 
+
 
   return (
-    <Wrapper className="full-page">
+    <>
+     <Container />
+     <Wrapper className="full-page">
       <form className="form">
         <h3>your contact details</h3>
         <div className="form-center">
@@ -48,7 +51,8 @@ const Profile = () => {
           />
         </div>
       </form>
-    </Wrapper>
+    </Wrapper></>
+    
   );
 };
 const Wrapper = styled.section`

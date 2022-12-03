@@ -1,5 +1,5 @@
 import { useAppContext } from "../context/appContext";
-import StatItem from "./StatItem";
+import StatItem from "./Item";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { BsPiggyBankFill } from "react-icons/bs";
 import { CgTrendingDown } from "react-icons/cg";
@@ -10,21 +10,21 @@ const StatsContainer = () => {
   const defaultStats = [
     {
       title: "savings",
-      count: stats.pending || 0,
+      count: stats?.pending || 0,
       icon: <BsPiggyBankFill />,
       color: "#e9b949",
       bcg: "#fcefc7",
     },
     {
-      title: "Total Money In",
-      count: stats.interview || 0,
+      title: "Deposits",
+      count: stats?.interview || 0,
       icon: <FaMoneyBillAlt />,
       color: "#157357",
       bcg: "#d4faef",
     },
     {
-      title: "Total Money Out",
-      count: stats.declined || 0,
+      title: "Withdrawals",
+      count: stats?.declined || 0,
       icon: <CgTrendingDown />,
       color: "#d66a6a",
       bcg: "#ffeeee",
