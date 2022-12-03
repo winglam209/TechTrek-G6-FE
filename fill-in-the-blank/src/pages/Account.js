@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import { StatsContainer } from "../components";
+<<<<<<< Updated upstream
 import Table from "../components/Table"
+=======
+import Table from '../components/Table'
+>>>>>>> Stashed changes
 
 const Account = () => {
   const { showStats, isLoading, monthlyTransactions } = useAppContext();
@@ -14,6 +18,12 @@ const Account = () => {
     { field: 'AccountType', headerName: 'Receiving Account ID', width: 200 },
     { field: 'AcccountBalance', headerName: 'Date', width: 200 }
   ];
+
+  const cols = [
+    { field: 'AccountID', headerName: 'Account ID', width: 200 },
+    { field: 'AccountType', headerName: 'Receiving Account ID', width: 200 },
+    { field: 'AcccountBalance', headerName: 'Date', width: 200 }
+];
 
   const rows = [
     {
