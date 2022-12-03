@@ -1,35 +1,39 @@
 import React from "react";
 import Textfield from "../components/Textfield";
 import styled from "styled-components";
+import Container from "../components/Container"
 
 const Profile = () => {
-    
+
+
   return (
-    <Wrapper>
+    <>
+     <Container />
+     <Wrapper className="full-page">
       <form className="form">
         <h3>your contact details</h3>
         <div className="form-center">
           <Textfield
             name="Username"
-            labelText="email"
+            labelText="username"
             // value={values?.email}
             // handleChange={handleChange}
           />
           <Textfield
             name="Password"
-            labelText="email"
+            labelText="password"
             // value={values?.email}
             // handleChange={handleChange}
           />
           <Textfield
             name="First Name"
-            labelText="email"
+            labelText="firstName"
             // value={values?.email}
             // handleChange={handleChange}
           />
           <Textfield
             name="Last Name"
-            labelText="email"
+            labelText="lastName"
             // value={values?.email}
             // handleChange={handleChange}
           />
@@ -41,13 +45,14 @@ const Profile = () => {
           />
           <Textfield
             name="Home Address"
-            labelText="email"
+            labelText="address"
             // value={values?.email}
             // handleChange={handleChange}
           />
         </div>
       </form>
-    </Wrapper>
+    </Wrapper></>
+    
   );
 };
 const Wrapper = styled.section`
