@@ -8,5 +8,5 @@ export default function ProtectedRoutes() {
 
   console.log("Current Logged-in user:", user);
 
-  return user ? <Outlet /> : <Navigate to="/" />;
+  return true ? <Outlet /> : <Navigate to="/" />;
 }
