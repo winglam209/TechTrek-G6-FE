@@ -52,6 +52,7 @@ const Forum = () => {
   }, [searchState]);
 
   return (
+    <>
     <div className={styles.forum}>
       <h1 className={styles.forumHeader}>Transaction</h1>
 
@@ -63,7 +64,8 @@ const Forum = () => {
         />
         <ForumModuleTable moduleData={moduleData} />
       </div>
-    </div>
+    </div></>
+    
   );
 };
 
