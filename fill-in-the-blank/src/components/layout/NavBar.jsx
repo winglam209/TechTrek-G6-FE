@@ -38,7 +38,7 @@ const NavBar = () => {
           <Link className={styles.navBarLink} to="/forum">
             Transaction
           </Link>
-          <Link className={styles.navBarLink} to="/groupFinder">
+          <Link className={styles.navBarLink} to="/profile">
             Profile
           </Link>
         </div>

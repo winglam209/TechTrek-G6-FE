@@ -30,7 +30,6 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<Account />} />
-              <Route path="/indexSwap/:moduleCode/:currentIndex/:desiredIndex" element={<IndexSwapSearch />} />
               <Route path="/groupFinder" element={<GroupFinder />} />
               <Route path="/profile" element={<Profile />} />
               <Route

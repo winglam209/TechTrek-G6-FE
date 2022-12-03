@@ -8,7 +8,6 @@ const Profile = () => {
 
   return (
     <>
-     <Container />
      <Wrapper className="full-page">
       <form className="form">
         <h3>your contact details</h3>
