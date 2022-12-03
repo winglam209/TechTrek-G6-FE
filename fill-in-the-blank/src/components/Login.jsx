@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import { firebaseAuth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -9,20 +9,29 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignIn = () => {
-    signInWithEmailAndPassword(firebaseAuth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log("Signed in as: ", user);
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
-  };
+  const tokenAPI = axios.create({
+    baseURL:"http://127.0.0.1:4000",
+    headers: {
+        "Content-Type": "application/json",
+    },
+});
 
-  console.log("email:", email);
-  console.log("password:", password);
+let handleSignIn = async (e) => {
+  const payload = JSON.stringify({"username": e.username , "password": e.password})
+  try {
+      let response = await tokenAPI.post("/login/",  payload)
+      console.log(response)
+      if (response.status === 200) {
+          console.log(response.data.accessToken)
+          // setAuthToken(response.data.accessToken)
+          // setUser(jwt_decode(response.data.accessToken))
+          // localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken))
+          // navigate("/")
+      }
+  } catch {
+      alert("Wrong password/user combination")
+  }
+}
 
   return (
     <div className={styles.loginCard}>
