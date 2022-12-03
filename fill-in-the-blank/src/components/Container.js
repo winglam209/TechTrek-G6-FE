@@ -9,15 +9,15 @@ const StatsContainer = () => {
   const { stats } = useAppContext();
   const defaultStats = [
     {
-      title: "savings",
-      count: stats?.pending || 0,
+      title: "Current",
+      count: stats?.pending || 99720.46,
       icon: <BsPiggyBankFill />,
       color: "#e9b949",
       bcg: "#fcefc7",
     },
     {
-      title: "Deposits",
-      count: stats?.interview || 0,
+      title: "Savings",
+      count: stats?.interview || 70200.71,
       icon: <FaMoneyBillAlt />,
       color: "#157357",
       bcg: "#d4faef",

@@ -52,9 +52,9 @@ const NavBar = () => {
           <Link className={styles.navBarLink} to="/dashboard">
             Dashboard
           </Link>
-          <Link className={styles.navBarLink} to="/transactions">
+          {/* <Link className={styles.navBarLink} to="/transactions">
             Transaction
-          </Link>
+          </Link> */}
           <Link className={styles.navBarLink} to="/profile">
             Profile
           </Link>
