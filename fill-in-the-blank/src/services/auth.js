@@ -1,7 +1,9 @@
 import { tokenAPI } from "./routes";
 
-export const loginAPI = async (username, password) => {
-  const payload = JSON.stringify({ username, password })
+export const loginAPI = async (email, password) => {
+  console.log(email)
+  console.log(password)
+  const payload = JSON.stringify({ username: email, password: password })
   try {
     let response = await tokenAPI.post("/login/", payload)
     console.log(response)
@@ -13,7 +15,8 @@ export const loginAPI = async (username, password) => {
       // localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken))
       // navigate("/")
     }
-  } catch {
+  } catch (e) {
+    console.log(e)
     alert("Wrong password/user combination")
     return false
   }

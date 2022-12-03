@@ -17,6 +17,7 @@ import Profile from "./pages/Profile"
 import Account from './pages/Account'
 import AddTransaction from "./pages/AddTransaction";
 import Transactions from './pages/Transactions'
+import Login from "./components/Login";
 
 function App() {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -29,7 +30,8 @@ function App() {
         <div>
           <NavBar />
           <Routes>
-            <Route path="/*" element={<Home />} />
+            {/* <Route path="/*" element={<Home />} /> */}
+            <Route path="/login" element={<Login />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<Account />} />
               <Route path="/transactions/new" element={<AddTransaction />} />
