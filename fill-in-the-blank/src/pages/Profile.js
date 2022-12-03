@@ -3,6 +3,7 @@ import Textfield from "../components/Textfield";
 import styled from "styled-components";
 
 const Profile = () => {
+    
   return (
     <Wrapper>
       <form className="form">
