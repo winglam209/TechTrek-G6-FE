@@ -8,7 +8,7 @@ const Account = () => {
 
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
-  
+
   const { showStats, isLoading, monthlyTransactions } = useAppContext();
   //   useEffect(() => {
   //     showStats();
@@ -17,6 +17,11 @@ const Account = () => {
   useEffect(() => {
     //API call to call states
   }, [])
+  const cols = [
+    { field: 'AccountID', headerName: 'Account ID', width: 200 },
+    { field: 'AccountType', headerName: 'Receiving Account ID', width: 200 },
+    { field: 'AcccountBalance', headerName: 'Date', width: 200 }
+  ];
 
 
   const rows = [
