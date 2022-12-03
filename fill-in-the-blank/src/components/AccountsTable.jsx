@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import styles from "../styles/components/Table.module.css";
 
 const DataTable = (prop) =>  {
-    const {id, rows, cols} = prop;
+    const {rows, cols} = prop;
     return (
     <div className={`${styles.table} table`}>
         <DataGrid
