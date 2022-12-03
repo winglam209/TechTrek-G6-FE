@@ -31,7 +31,7 @@ function App() {
           <NavBar />
           <Routes>
             {/* <Route path="/*" element={<Home />} /> */}
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<Account />} />
               <Route path="/transactions/new" element={<AddTransaction />} />
