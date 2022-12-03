@@ -10,6 +10,8 @@ import Login from "../components/Login";
 import styles from "../styles/pages/Home.module.css";
 import DetailCard from '../components/DetailCard';
 
+import Table from "../components/Table"
+
 const Home = () => {
   const [user, loading, error] = useAuthState(firebaseAuth);
   const [showModal, setShowModal] = React.useState(false)
@@ -34,6 +36,7 @@ const Home = () => {
             title={"Testing"}
             text={"testing body"}
           />
+          <Table />
         </div>
       ) : (
         <div className={styles.home}>
