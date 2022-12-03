@@ -16,6 +16,7 @@ import GFModClassPage from "./pages/GFModClassPage";
 import Profile from "./pages/Profile"
 import Account from './pages/Account'
 import AddTransaction from "./pages/AddTransaction";
+import Transactions from './pages/Transactions'
 
 function App() {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -34,6 +35,8 @@ function App() {
               <Route path="/transactions/new" element={<AddTransaction />} />
               <Route path="/groupFinder" element={<GroupFinder />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/transactions" element={<Transactions />} />
               <Route
                 path="/groupFinder/:moduleCode/:classIndex"
                 element={<GFModClassPage />}

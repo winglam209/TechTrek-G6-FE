@@ -2,12 +2,18 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import { StatsContainer } from "../components";
+import Table from "../components/Table"
 
 const Account = () => {
   const { showStats, isLoading, monthlyTransactions } = useAppContext();
   //   useEffect(() => {
   //     showStats();
   //   }, []);
+  const cols = [
+    { field: 'AccountID', headerName: 'Account ID', width: 200 },
+    { field: 'AccountType', headerName: 'Receiving Account ID', width: 200 },
+    { field: 'AcccountBalance', headerName: 'Date', width: 200 }
+  ];
 
   const rows = [
     {
