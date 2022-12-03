@@ -9,10 +9,7 @@ import Select from "../components/Select";
 const Transactions = () => {
   const { showStats, isLoading, monthlyTransactions } = useAppContext();
 
-  const {
-    displayPopup,
-    showPopup,
-  } = useAppContext();
+  const { displayPopup, showPopup } = useAppContext();
 
   const cols = [
     { field: "TransactionID", headerName: "Transaction ID", width: 200 },
@@ -53,10 +50,11 @@ const Transactions = () => {
   return (
     <>
       <Popup />
-      <button className="btn-hero" type="submit" onClick={displayPopup}>
-        Add Transaction
-      </button>
+
       <Wrapper>
+        <button className="btn-hero" type="submit" onClick={displayPopup}>
+          Add Transaction
+        </button>
         {/* <section className="section-center">
           <h3>YOUR ACCOUNTS</h3>
           <p>Let's work together to keep your finances in check!</p>
@@ -75,6 +73,10 @@ const Wrapper = styled.main`
     width: 300px;
     margin-bottom: 2rem;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default Transactions;
