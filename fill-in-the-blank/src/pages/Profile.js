@@ -4,9 +4,6 @@ import styled from "styled-components";
 
 const Profile = () => {
 
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
 
   return (
     <Wrapper className="full-page">
