@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { signOut } from "firebase/auth";
@@ -11,6 +12,14 @@ import ActionButton from "../ActionButton";
 
 const NavBar = () => {
   const [user, loading, error] = useAuthState(firebaseAuth);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, [])
 
   const logout = () => {
     signOut(firebaseAuth)
@@ -30,7 +39,7 @@ const NavBar = () => {
 
         DBS Bank
       </Link>
-      {user ? (
+      {isAuthenticated ? (
         <div className={styles.navBarLinksRow}>
           <Link className={styles.navBarLink} to="/dashboard">
             Dashboard
