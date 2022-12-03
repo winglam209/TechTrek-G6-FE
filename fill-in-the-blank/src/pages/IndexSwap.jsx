@@ -130,7 +130,7 @@ const IndexSwap = () => {
 
   return (
     <div className={styles.indexSwap}>
-      <h1 className={styles.indexSwapHeader}>Index Swap</h1>
+      <h1 className={styles.indexSwapHeader}>Dashboard</h1>
 
       <h2 className={styles.indexSwapHeader}>Your Requests</h2>
       <div className={styles.indexSwapBody}>

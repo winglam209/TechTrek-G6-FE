@@ -1,5 +1,5 @@
 .loginCard {
-  background-color: red;
+  background-color: #d9e2ec;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 }
 
 .loginCardHeader {
-  color: white;
+  color: black;
 }
 
 .loginArea {

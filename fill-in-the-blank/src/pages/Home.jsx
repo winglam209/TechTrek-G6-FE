@@ -18,7 +18,7 @@ const Home = () => {
     <div>
       {user ? (
         <div className={styles.home}>
-          <h1>Welcome to NTYou!</h1>
+          <h1>Welcome to Banking Application!</h1>
           <h2>A Platform Made For You</h2>
           <ActionButton
             colour="primary"
