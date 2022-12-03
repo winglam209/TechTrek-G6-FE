@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div>
-      {user ? (
+      {true ? (
         <div className={styles.home}>
           <h1>Welcome to Banking Application!</h1>
           <h2>A Platform Made For You</h2>
