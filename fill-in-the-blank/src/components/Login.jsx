@@ -1,7 +1,6 @@
 import { useState } from "react";
-
-import { firebaseAuth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import Textfield from "../components/Textfield";
+import ActionButton from "./ActionButton";
 
 import styles from "../styles/components/Login.module.css";
 
@@ -10,15 +9,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(firebaseAuth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log("Signed in as: ", user);
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+    // signInWithEmailAndPassword(firebaseAuth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed in
+    //     const user = userCredential.user;
+    //     console.log("Signed in as: ", user);
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error: ", error);
+    //   });
   };
 
   console.log("email:", email);
@@ -26,25 +25,21 @@ const Login = () => {
 
   return (
     <div className={styles.loginCard}>
-      <h1 className={styles.loginCardHeader}>Login with your DigiBank Account</h1>
+      <h1 className={styles.loginCardHeader}>Login to your DBS account</h1>
       <div className={styles.loginArea}>
-        <h2 className={styles.inputHeader}>Email</h2>
-        <input
-          className={styles.inputField}
-          type="email"
+        <Textfield
+          name="Email"
+          labelText="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          handleChange={(e) => setEmail(e.target.value)}
         />
-        <h2 className={styles.inputHeader}>Password</h2>
-        <input
-          className={styles.inputField}
-          type="password"
+        <Textfield
+          name="Password"
+          labelText="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          handleChange={(e) => setPassword(e.target.value)}
         />
-        <button className={styles.loginButton} onClick={handleSignIn}>
-          Login
-        </button>
+        <ActionButton text="Login" colour="primary" onClick={handleSignIn} />
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 .loginCard {
-  background-color: rgba(18, 28, 64, 0.9);
+  background-color: #d9e2ec;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 50vh;
   /* margin-left: 60vw;
   margin-top: 20vh; */
@@ -11,15 +12,17 @@
 }
 
 .loginCardHeader {
-  color: white;
+  color: black;
 }
 
 .loginArea {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 40vh;
   padding: 30px;
-  width: 20vw;
+  width: 25ch;
 }
 
 .inputField {
