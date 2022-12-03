@@ -14,6 +14,7 @@ import ModForum from "./pages/ModForum";
 import Loader from "./components/Loader";
 import GFModClassPage from "./pages/GFModClassPage";
 import Profile from "./pages/Profile"
+import Account from './pages/Account'
 
 function App() {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -32,6 +33,7 @@ function App() {
               <Route path="/indexSwap/:moduleCode/:currentIndex/:desiredIndex" element={<IndexSwapSearch />} />
               <Route path="/groupFinder" element={<GroupFinder />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/account" element={<Account />} />
               <Route
                 path="/groupFinder/:moduleCode/:classIndex"
                 element={<GFModClassPage />}
