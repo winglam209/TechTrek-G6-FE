@@ -32,7 +32,7 @@ const NavBar = () => {
       </Link>
       {user ? (
         <div className={styles.navBarLinksRow}>
-          <Link className={styles.navBarLink} to="/indexSwap">
+          <Link className={styles.navBarLink} to="/dashboard">
             Dashboard
           </Link>
           <Link className={styles.navBarLink} to="/forum">

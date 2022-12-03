@@ -29,11 +29,10 @@ function App() {
           <Routes>
             <Route path="/*" element={<Home />} />
             <Route element={<ProtectedRoutes />}>
-              <Route path="/indexSwap" element={<IndexSwap />} />
+              <Route path="/dashboard" element={<Account />} />
               <Route path="/indexSwap/:moduleCode/:currentIndex/:desiredIndex" element={<IndexSwapSearch />} />
               <Route path="/groupFinder" element={<GroupFinder />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/account" element={<Account />} />
               <Route
                 path="/groupFinder/:moduleCode/:classIndex"
                 element={<GFModClassPage />}
