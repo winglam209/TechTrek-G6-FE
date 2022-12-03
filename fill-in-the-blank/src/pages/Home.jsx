@@ -1,4 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth";
+import ActionButton from "../components/ActionButton";
 
 import { firebaseAuth } from "../firebase";
 
@@ -15,6 +16,11 @@ const Home = () => {
         <div className={styles.home}>
           <h1>Welcome to NTYou!</h1>
           <h2>A Platform Made For You</h2>
+          <ActionButton
+            colour="primary"
+            text="Delete"
+            onClick={() => console.log('testing')}
+          />
         </div>
       ) : (
         <div className={styles.home}>
