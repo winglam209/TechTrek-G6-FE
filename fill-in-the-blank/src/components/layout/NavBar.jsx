@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -13,22 +14,29 @@ import ActionButton from "../ActionButton";
 const NavBar = () => {
   const [user, loading, error] = useAuthState(firebaseAuth);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [validateToken, setValidateToken] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    if (token !== null) {
+      // if (validateToken == true) {
       setIsAuthenticated(true);
     }
-  }, [])
+  }, [localStorage])
 
   const logout = () => {
-    signOut(firebaseAuth)
-      .then(() => {
-        console.log("Signed out successfully");
-      })
-      .catch((error) => {
-        console.log("Signed out failed: ", error);
-      });
+    // setValidateToken(false)
+    localStorage.setItem("token", null);
+    setIsAuthenticated(false)
+    navigate("/login");
+    // signOut(firebaseAuth)
+    //   .then(() => {
+    //     console.log("Signed out successfully");
+    //   })
+    //   .catch((error) => {
+    //     console.log("Signed out failed: ", error);
+    //   });
   };
 
   return (
@@ -55,7 +63,7 @@ const NavBar = () => {
         <div className={styles.navBarLinksRow}></div>
       )}
 
-      {user ? (
+      {isAuthenticated ? (
         <ActionButton colour="error" text="Log Out" onClick={logout}>
         </ActionButton>
       ) : (
