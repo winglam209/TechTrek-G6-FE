@@ -38,7 +38,7 @@ function App() {
               <Route path="/groupFinder" element={<GroupFinder />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/account" element={<Account />} />
-              <Route path="/transactions" element={<Transactions />} />
+              <Route path="/transactions/:accountId" element={<Transactions />} />
               <Route
                 path="/groupFinder/:moduleCode/:classIndex"
                 element={<GFModClassPage />}

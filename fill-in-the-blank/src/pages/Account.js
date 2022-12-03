@@ -18,7 +18,7 @@ const Account = () => {
     { field: 'AccountID', headerName: 'Account ID', width: 200 },
     { field: 'UserID', headerName: 'User ID', width: 200 },
     { field: 'AccountType', headerName: 'Receiving Account ID', width: 200 },
-    { field: 'AcccountBalance', headerName: 'Date', width: 200 }
+    { field: 'AcccountBalance', headerName: 'Acccount Balance', width: 200 }
   ];
 
 
