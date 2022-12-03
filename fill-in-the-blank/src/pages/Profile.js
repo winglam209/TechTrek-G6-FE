@@ -1,14 +1,13 @@
 import React from "react";
 import Textfield from "../components/Textfield";
 import styled from "styled-components";
-import Container from "../components/Container"
 
 const Profile = () => {
 
 
   return (
     <>
-     <Wrapper className="full-page">
+     <Wrapper>
       <form className="form">
         <h3>your contact details</h3>
         <div className="form-center">
@@ -49,6 +48,9 @@ const Profile = () => {
             // handleChange={handleChange}
           />
         </div>
+        <button className="btn btn-block" type="submit">
+          Update
+        </button>
       </form>
     </Wrapper></>
     
@@ -65,6 +67,10 @@ const Wrapper = styled.section`
 
   p {
     color: var(--grey-500);
+  }
+
+  .btn {
+    width:50%;
   }
 
   .form {
