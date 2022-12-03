@@ -1,32 +1,20 @@
 import {
-    UPDATE_USER_BEGIN,
-    UPDATE_USER_ERROR,
-    UPDATE_USER_SUCCESS
-} from '/actions'
+    DISPLAY_POPUP,
+    CLEAR_POPUP
+} from './actions'
 
 const reducer = (state,action) => {
-    if (action.type === UPDATE_USER_BEGIN) {
-        return { ...state, isLoading: true };
-      }
-    
-      if (action.type === UPDATE_USER_SUCCESS) {
+
+      if (action.type === DISPLAY_POPUP) {
         return {
           ...state,
-          isLoading: false,
-          token: action.payload.token,
-          user: action.payload.user,
-          showAlert: true,
-          alertType: "success",
-          alertText: "User Profile Updated!",
+          showPopup:"show"
         };
       }
-      if (action.type === UPDATE_USER_ERROR) {
+      if (action.type === CLEAR_POPUP) {
         return {
           ...state,
-          isLoading: false,
-          showAlert: true,
-          alertType: "danger",
-          alertText: action.payload.msg,
+          showPopup:""
         };
       }
 }

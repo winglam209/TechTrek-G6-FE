@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { useState } from "react";
 import Textfield from "./Textfield";
 import Select from "./Select";
+import Calendar from "./Calendar";
 import { useAppContext } from "../context/appContext";
 
 const Popup = ({ onSubmit }) => {
-
   const {
-    showPopup,
     clearPopup,
     transactionType,
     transactionTypeOptions,
@@ -15,39 +14,49 @@ const Popup = ({ onSubmit }) => {
     transactionDate,
     showAlert,
     description,
-    value
+    value,
+    showPopup
   } = useAppContext();
+
 
   const handleTransactionInput = (e) => {
     handleChange({ name: e.target.name, value: e.target.value });
   };
 
+
+
   return (
     <Wrapper>
-      <div className={`popup-wrapper ${showPopup}`}>
+        <div className={`popup-wrapper ${showPopup}`}>
         <div className="center">
           <form className="form" onSubmit={onSubmit}>
             <>
-            <Select
+              {/* <Select
                 labelText="Transaction Type"
                 name="transactionType"
                 value={transactionType}
                 handleChange={handleTransactionInput}
                 list={transactionTypeOptions}
-              />
+              /> */}
               <Textfield
-                name="Description"
+                name="Receiving Account"
                 labelText="description"
                 value={description}
                 handleChange={handleTransactionInput}
               />
+              <Calendar label="Scheduled Transactions" />
               <Textfield
-                name="Value"
+                name="Transaction Amount"
                 labelText="value"
                 value={value}
                 handleChange={handleTransactionInput}
               />
-
+              <Textfield
+                name="Comments"
+                labelText="value"
+                value={value}
+                handleChange={handleTransactionInput}
+              />
             </>
             <button
               type="submit"
@@ -107,6 +116,7 @@ const Wrapper = styled.section`
     width: 100%;
     height: 100%;
     display: none;
+    z-index: 500;
   }
 
   .show {
