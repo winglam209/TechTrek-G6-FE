@@ -8,6 +8,7 @@ import { firebaseAuth } from "../firebase";
 import Login from "../components/Login";
 
 import styles from "../styles/pages/Home.module.css";
+import DetailCard from '../components/DetailCard';
 
 const Home = () => {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -24,6 +25,8 @@ const Home = () => {
             text="Delete"
             onClick={() => setShowModal(true)}
           />
+          <DetailCard text={"$8888"} heading={'Withdrawal'} />
+          <DetailCard text={"$8888"} heading={'Withdrawal'} />
           <ConfirmationModal
             show={showModal}
             onCancel={() => { setShowModal(false) }}
