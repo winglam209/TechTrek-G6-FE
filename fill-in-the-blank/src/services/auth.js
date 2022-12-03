@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const addUserToLocalStorage = ({ user, token }) => {
   localStorage.setItem("user", JSON.stringify(user));
   localStorage.setItem("token", token);

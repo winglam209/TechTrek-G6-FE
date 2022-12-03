@@ -35,7 +35,7 @@ const NavBar = () => {
           <Link className={styles.navBarLink} to="/dashboard">
             Dashboard
           </Link>
-          <Link className={styles.navBarLink} to="/forum">
+          <Link className={styles.navBarLink} to="/transactions">
             Transaction
           </Link>
           <Link className={styles.navBarLink} to="/profile">
