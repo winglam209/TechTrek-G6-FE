@@ -10,7 +10,7 @@ import Login from "../components/Login";
 import styles from "../styles/pages/Home.module.css";
 import DetailCard from '../components/DetailCard';
 
-import Table from "../components/Table"
+import Table from "../components/AccountsTable"
 
 const Home = () => {
   const [user, loading, error] = useAuthState(firebaseAuth);
@@ -36,7 +36,7 @@ const Home = () => {
             title={"Testing"}
             text={"testing body"}
           />
-          <Table />
+          {/* <Table /> */}
         </div>
       ) : (
         <div className={styles.home}>

@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import { StatsContainer } from "../components";
-import Table from "../components/Table"
+import TransactionsTable from "../components/TransactionsTable"
 
-const Account = () => {
+const Transactions = () => {
   const { showStats, isLoading, monthlyTransactions } = useAppContext();
-
+  
   const cols = [
     { field: 'TransactionID', headerName: 'Transaction ID', width: 200 },
     { field: 'AccountID', headerName: 'Account ID', width: 200 },
@@ -40,9 +41,9 @@ const Account = () => {
         {/* <section className="section-center">
           <h3>YOUR ACCOUNTS</h3>
           <p>Let's work together to keep your finances in check!</p>
-        </section> */}
-        {/* <StatsContainer /> */}
-        <Table
+        </section>
+        <StatsContainer /> */}
+        <TransactionsTable
           rows={rows}
           cols={cols}
         />
@@ -60,4 +61,4 @@ const Wrapper = styled.main`
   }
 `;
 
-export default Account;
+export default Transactions;

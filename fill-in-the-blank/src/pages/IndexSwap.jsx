@@ -11,7 +11,7 @@ import IndexSwapTable from "../components/IndexSwapTable";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { firebaseAuth } from "../firebase";
 
-import Table from "../components/Table"
+import Table from "../components/AccountsTable"
 
 
 const IndexSwap = () => {
